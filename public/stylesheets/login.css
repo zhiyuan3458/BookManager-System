@@ -1,0 +1,26 @@
+html,body{
+	width: 100%;
+	height: 100%;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#login{
+	width: 70%;
+	margin-top: -8rem;
+}
+
+#login .checkbox{
+	margin-left: 14rem;
+}
+
+#login .btnGroup{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-top: 1.8rem;
+}
+

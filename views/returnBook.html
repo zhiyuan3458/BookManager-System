@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title><%=title %></title>
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="stylesheets/returnBook.css">
+    <style type="text/css">
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+   <div id="main-body">
+    <div style="background:#FFEEBC;height: 4rem;margin-bottom: 1rem;font-size:1.4rem;">
+        <span class="glyphicon glyphicon-chevron-left" style="line-height: 4rem;margin-left: 0.3rem;color:grey;"></span>
+    </div>
+	<form>
+		<div class="form-group">
+			<label class="text-info">书本编号：</label>
+			<input type="text" name="bookNo" class="form-control" placeholder="请输入书本编号" /><br><br>
+			<button class="btn btn-info btn-block" name="confirm">确定</button>
+		</div>
+	</form>
+  </div>
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+<script type="text/javascript" src="javascripts/returnBook1.js"></script>
+</body>
+</html>

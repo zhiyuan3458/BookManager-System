@@ -1,0 +1,25 @@
+#nav-bottom{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background: #5BC0DE;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+#nav-bottom .label{
+	color: #C60000;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#nav-bottom .label span{
+	margin:0.3rem;
+}
+
+#nav-bottom .bottom{
+	width: 100%;
+	height: inherit;
+}

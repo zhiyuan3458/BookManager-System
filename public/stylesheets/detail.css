@@ -1,0 +1,69 @@
+.head{
+	position: fixed;
+	height: 3.5rem;
+	width: 100%;
+	background: #FFEEBC;
+	text-align: center;
+}
+
+.head .glyphicon{
+	line-height: 3.5rem;
+	color:grey;
+    font-size: 1.8rem;
+    position: absolute;
+    left:1rem;
+}
+
+.head .title{
+    font-size: 1.8rem;
+    line-height: 3.5rem;
+}
+
+.head1{
+	height: 3rem;
+	width: 100%;
+}
+
+#detail-head{
+	display: flex;
+	flex:row;
+	justify-content: flex-start;
+	background: #F1F1F1;
+	margin-top: 1rem;
+}
+
+@media only screen and (min-device-width: 1050px){
+    img{
+    	width: 15%;
+    	height: 15%;
+    	margin:1rem;
+    }
+}
+
+@media only screen and (min-device-width: 300px) and (max-device-width:1049px){
+	img{
+	  width: 30%;
+      height: 30%;
+      margin:1rem;
+    }
+}
+
+#detail-head .detail-head-bookname{
+   margin-top: 1rem;
+   margin-left: 1rem;
+   font-weight: 400;
+}
+
+#detail-head .detail-head-bookname .book-number{
+	margin-top:4rem;
+}
+
+#detail-introduction p{
+	text-align: center;
+	padding-top:1rem;
+}
+
+#get{
+   position: absolute;
+   bottom: 0;
+}

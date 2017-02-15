@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title><%=title %></title>
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+</head>
+<body>   
+   <%- message %>
+	<div id="login">
+		<header><h2>书吧借书系统</h2></header>
+
+		<div id ="body">
+			<form>
+			  <div class="form-group">
+			     <div class="input-group"> 
+			        <div class="input-group-addon" style="background: #66D9EF;">
+			        	<span class="glyphicon glyphicon-user"></span>
+			        </div> 
+			        <input type="text" name="username" class="form-control" placeholder="请输入账号">
+                 </div><br><br>
+	
+			     <div class="input-group"> 
+			        <div class="input-group-addon" style="background: #5CB85C;">
+			        	<span class="glyphicon glyphicon-lock"></span>
+			        </div> 
+			       <input type="password" name="password" class="form-control" placeholder="请输入密码">
+                 </div>	<br>
+                 <div class="checkbox"> 
+                    <label> 
+                      <input type="checkbox" name="remenber">记住我 
+                    </label> 
+                 </div> 
+                 <div class="btnGroup">
+                 	 <button class="btn btn-info" name="login">登录</button>
+                     <a href="regist" class="btn btn-success">注册</a>
+                 </div>
+			</form>
+		</div>
+	</div>
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascripts/login.js" ></script>
+</body>
+</html>

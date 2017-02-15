@@ -1,0 +1,22 @@
+header{
+	height: 4rem;
+	background: #FFEEBC;
+	font-weight: 600;
+	margin-bottom: 2rem;
+	text-align: center;
+    line-height: 4rem;
+}
+
+header .detailMessage{
+	line-height: 4rem;
+    font-size: 1.8rem;
+    margin:0 auto;
+}
+
+header .glyphicon{
+	position: absolute;
+	left:1rem;
+	top:1.04rem;
+	color:grey;
+	font-size: 1.8rem;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>confirmMessage</title>
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="stylesheets/confirmMessage.css">
+</head>
+<body>
+	<header>
+	<a href="javascript:history.go(-1)"><span class="glyphicon glyphicon-chevron-left"></span></a>
+	  <span class="detailMessage">详情信息</span>
+	</header>
+	<div class="panel panel-info"> 
+	   <div class="panel-heading"> 借书详情信息 </div> 
+	       <div class="panel-body"> 
+	       	<p name="username">学号:<span><%=detail.username %></span></p>
+	       	<p name="bookName">书本名：<span><%=detail.bookName %></span></p>
+	       	<p name="bookNo">书籍编号：<span><%=detail.bookNo %></span></p>
+	       	<p name="nowDate">借出日期：<span><%=detail.nowDate %></span></p>
+	       	<p name="returnDate">归还日期：<span><%=detail.returnDate %></span></p>
+		   </div>
+	</div>
+    <footer>
+    	<button class="btn btn-info btn-lg btn-block">确定</button>
+    </footer>
+
+    <div class="modal">
+    	<div class="modal-dialog">
+    		<div class="modal-content">
+    			<div class="modal-header">
+    				<p></p>
+    			</div>
+    			<div class="modal-body">
+    				<p>借书成功！5秒后自动返回...</p>
+    			</div>
+    			<div class="modal-footer">
+    				<button type="button" class="btn btn-default">返回</button>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascripts/confirmMessage.js"></script>
+</body>
+</html>

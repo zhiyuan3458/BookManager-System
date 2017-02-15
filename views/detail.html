@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title><%=bookData.bookName %></title>
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="stylesheets/detail.css">
+	<style type="text/css">
+		.error{
+			color:red;
+		}
+	</style>
+</head>
+<body>
+    <!-- title -->
+    <div class="head">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="title text-info"><%=bookData.bookName %></span>
+    </div>
+    <div class="head1"></div>
+
+    <!-- bookname -->
+	<div id="detail-head">
+		<img src="img/<%=bookData.bookPic %>" />
+		<div class="detail-head-bookname">
+			<p><%=bookData.bookName %></p>
+			<p>作者：<%=bookData.author %> &nbsp;|&nbsp; <%=bookData.publicer %></p>
+			<p class="book-number">还有<%=bookData.bookNum %>本在馆</p>
+		</div>
+	</div>
+
+	<!-- book introduction -->
+	<div id="detail-introduction">
+		<p data-toggle="collapse" data-target="#content"> 书目推荐 <span class="caret"></span> </p>
+        <div class="collapse" id="content"> 
+            <div class="well"> Bootstrap 是 Twitter 推出的一个用于前端开发的开源工具包。它由 Twitter 的设计师 Mark Otto 和 Jacob Thornton 合作开发,是一个 CSS/HTML 框架。目 前,Bootstrap 最新版本为 3.0 。 
+            </div> 
+        </div>
+
+	</div>
+	<!-- review -->
+	<div id="detail-tail"></div>
+
+	<!-- get book button -->
+	<div id="get" class="btn-group-justified">
+		<a type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">借阅</a>  
+		<a type="button" class="btn btn-info btn-lg">收藏</a>
+	</div> 
+	<div class="modal fade" id="myModal">
+			<div class="modal-dialog modal-sm" style="margin-top:10rem;">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close"  data-dismiss="modal">
+							<span>&times;
+							</span>
+						</button>
+						    <h4 class="modal-title">请输入借书号</h4>
+						</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<input type="text" name="bookNo" class="form-control" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')"/>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button name="submit" class="btn btn-default">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+<script type="text/javascript" src="javascripts/detail.js"></script>
+</body>
+</html>

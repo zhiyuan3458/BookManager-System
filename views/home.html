@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" href="stylesheets/home.css">
+  <style type="text/css">
+      .error{
+        color:red;
+      }
+  </style>
+	<title><%=title %></title>
+</head>
+<body>  
+ <div id="main-body"> 
+    <div id="title">
+    	  <ul class="nav nav-pills"> 
+    	    <li class="active" style="margin:.3rem;"><a href="#">新书推荐</a></li> 
+    	    <li><a href="#" style="margin:.3rem;">理工</a></li> 
+    	    <li><a href="#" style="margin:.3rem;">经济</a></li> 
+    	    <li><a href="#" style="margin:.3rem;">哲学</a></li> 
+    	    <li><a href="#" style="margin:.3rem;">文学</a></li>
+    	</ul>
+    </div>
+    <div id="search">
+      <div class="input-group" style="margin-top:0px positon:relative"> 
+            <input name="search" type="text" class="form-control" placeholder="请输入书名" / >  
+            <span class="input-group-btn">  
+               <button class="btn btn-info">查找</button>
+            </span>  
+      </div>  
+    </div>
+
+    <!-- listView -->
+        <% if(data !== 'wrong'){ %>
+           <div id="listView">
+            <%  for(var i = 0;i < data.length;i++){   %>
+              <a href="detail?bookId=<%=data[i].bookId %>">
+                 <div class="listView-item">
+                   <div class="listView-item-content">          
+                     <img src="img/<%=data[i].bookPic %>" style="width: 4.5rem;height: 5rem;"> 
+                     <ul>
+                        <li><%=data[i].bookName %></li>
+                        <li>作者：<%=data[i].author %></li>
+                     </ul>
+                   </div>
+                   <div>剩余量：<%=data[i].bookNum %></div>
+                 </div></a>
+            <% } %>
+       <%  }else{  %>
+             <div style="background: white;">pages is <%=data %></div>     
+        <% } %>
+           <!-- <div class="listView-item">
+            <div class="listView-item-content">          
+             	 <img src="img/商业模式全史.jpg" style="width: 10%;height: 15%;"> 
+           	  	<ul>
+           	  	 <li>商业模式全史</li>
+           	 	 <li>作者：吕智源</li>
+           	  	</ul>
+           	 </div>
+           	 <div>剩余量：5</div>
+           </div>
+           <div class="listView-item">
+            <div class="listView-item-content">          
+             	 <img src="img/商业模式全史.jpg" style="width: 10%;height: 15%;"> 
+           	  	<ul>
+           	  	 <li>商业模式全史</li>
+           	 	 <li>作者：吕智源</li>
+           	  	</ul>
+           	 </div>
+           	 <div>剩余量：5</div>
+           </div>
+           <div class="listView-item">
+            <div class="listView-item-content">          
+             	 <img src="img/商业模式全史.jpg" style="width: 10%;height: 15%;"> 
+           	  	<ul>
+           	  	 <li>商业模式全史</li>
+           	 	 <li>作者：吕智源</li>
+           	  	</ul>
+           	 </div>
+           	 <div>剩余量：5</div>
+           </div>
+           <div class="listView-item">
+            <div class="listView-item-content">          
+             	 <img src="img/商业模式全史.jpg" style="width: 10%;height: 15%;"> 
+           	  	<ul>
+           	  	 <li>商业模式全史</li>
+           	 	 <li>作者：吕智源</li>
+           	  	</ul>
+           	 </div>
+           	 <div>剩余量：5</div>
+           </div>
+           <div class="listView-item">
+            <div class="listView-item-content">          
+             	 <img src="img/商业模式全史.jpg" style="width: 10%;height: 15%;"> 
+           	  	<ul>
+           	  	 <li>商业模式全史</li>
+           	 	 <li>作者：吕智源</li>
+           	  	</ul>
+           	 </div>
+           	 <div>剩余量：5</div>
+           </div>
+           <div class="listView-item">
+            <div class="listView-item-content">          
+             	 <img src="img/商业模式全史.jpg" style="width: 10%;height: 15%;"> 
+           	  	<ul>
+           	  	 <li>商业模式全史</li>
+           	 	 <li>作者：吕智源</li>
+           	  	</ul>
+           	 </div>
+           	 <div>剩余量：5</div>
+           </div>
+           <div class="listView-item">
+            <div class="listView-item-content">          
+             	 <img src="img/商业模式全史.jpg" style="width: 10%;height: 15%;"> 
+           	  	<ul>
+           	  	 <li>商业模式全史</li>
+           	 	 <li>作者：吕智源</li>
+           	  	</ul>
+           	 </div>
+           	 <div>剩余量：5</div>
+           </div>
+           <div class="listView-item">
+            <div class="listView-item-content">          
+             	 <img src="img/商业模式全史.jpg" style="width: 10%;height: 15%;"> 
+           	  	<ul>
+           	  	 <li>商业模式全史</li>
+           	 	 <li>作者：吕智源</li>
+           	  	</ul>
+           	 </div>
+           	 <div>剩余量：5</div>
+           </div>
+           <div class="listView-item">
+            <div class="listView-item-content">          
+             	 <img src="img/商业模式全史.jpg" style="width: 10%;height: 15%;"> 
+           	  	<ul>
+           	  	 <li>商业模式全史</li>
+           	 	 <li>作者：吕智源</li>
+           	  	</ul>
+           	 </div>
+           	 <div>剩余量：5</div>
+           </div> -->
+       <div class="listView-item">
+          没有更多了...      
+        </div>
+    </div>
+</div>
+    <div id="nav-bottom">
+    	 <a href="home?title=新书推荐&type=first"><div class="label home">
+    		<span class="glyphicon glyphicon-home"></span>
+    		<span>首页</span>
+    	</div></a>
+
+      <a href="returnBook"><div class="label send" style="color:white;">
+        <span class="glyphicon glyphicon-book"></span>
+        <span>还书</span>
+      </div></a>
+
+    	<a href="#javascript;"><div class="label person" style="color:white;">
+    		<span class="glyphicon glyphicon-user"></span>
+    		<span>个人</span>
+    	</div></a>
+    </div>  
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascripts/home.js"></script>
+</body>
+</html>

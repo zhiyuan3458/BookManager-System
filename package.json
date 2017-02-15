@@ -1,0 +1,50 @@
+{
+  "name": "myserver",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.2",
+    "bootstrap-loader": "^2.0.0-beta.20",
+    "connect-favicons": "git://github.com/theworkers/connect-favicons.git",
+    "cookie-parser": "^1.4.3",
+    "css-loader": "^0.26.1",
+    "debug": "~2.2.0",
+    "ejs": "^2.5.5",
+    "express": "~4.14.0",
+    "morgan": "~1.7.0",
+    "multer": "^1.2.1",
+    "node-sass": "^4.5.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "resolve-url-loader": "^1.6.1",
+    "sass-loader": "^5.0.1",
+    "serve-favicon": "~2.3.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.22.0",
+    "body-parser": "^1.15.2",
+    "bootstrap-loader": "^2.0.0-beta.20",
+    "bootstrap-sass": "^3.3.7",
+    "cookie-parser": "^1.4.3",
+    "css-loader": "^0.26.1",
+    "debug": "^2.2.0",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "http": "0.0.0",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.1.1",
+    "multer": "^1.2.1",
+    "mysql": "^2.12.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1"
+  }
+}
