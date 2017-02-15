@@ -36,7 +36,7 @@ function saveDetailInBookDetail(detail,callback){
 
 function deleteOrderDetail(bookNo,user,callback){
     var client = database.getConnection();
-    var sql = 'select user_name from orders where book_no='+bookNo;console.log(sql);
+    var sql = 'select user_name from orders where book_no='+bookNo;
     database.select(client,sql,function(result){
         if(result[0] !== undefined){
             if(result[0].user_name == user.username){

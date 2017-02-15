@@ -29,4 +29,28 @@ var registPost = function(req,res){
       });
 };
 
-module.exports = {registRemote,registPost};
+function checkBookCountBiggerThan3(userName,callback){
+   var client = database.getConnection();
+   var sql = 'select book_count from users where username='+userName;
+   database.select(client,sql,function(results){
+      if(results[0] !== undefined){
+         if(results[0].book_count >= 3){
+            callback(false);
+         }else{
+            callback(true);
+         }
+      }
+   });
+}
+
+function addBookCount(userName){
+   var sql = 'update users set book_count=book_count+1 where username=?';
+   database.update(sql,[username]);
+}
+
+function deleteBookCount(userName){
+   var sql = 'update users set book_count=book_count-1 where username=?';
+   database.update(sql,[username]);
+}
+
+module.exports = {registRemote,registPost,checkBookCountBiggerThan3,addBookCount,deleteBookCount};

@@ -9,6 +9,7 @@ var multer = require('multer');
 var upload = multer(); 
 var order = require('../dao/orderDao/order');
 var book = require('../dao/bookDao/book');
+var userDao = require('../dao/userDao/userDao');
 
 router.get('/',function(req,res){
     var query = url.parse(req.url).query;
@@ -33,11 +34,16 @@ router.post('/',upload.array(),function(req,res){
           returnDate:returnDate
     };
     
-    book.updateIsInLibraryToZero(bookNo);
-
-    order.saveDetailInBookDetail(detail,function(){
-           res.sendStatus(200);
-    });
+    userDao.checkBookCountBiggerThan3(username,function(bool){
+         if(bool == true){console.log(bool);
+             book.updateIsInLibraryToZero(bookNo);
+             order.saveDetailInBookDetail(detail,function(){
+                     res.status(200).send(true);
+             });
+         }else{console.log(bool);
+            res.status(200).send(false);
+         }
+    });   
 });
 
 module.exports = router;
