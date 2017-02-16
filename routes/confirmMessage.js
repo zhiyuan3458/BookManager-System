@@ -35,12 +35,13 @@ router.post('/',upload.array(),function(req,res){
     };
     
     userDao.checkBookCountBiggerThan3(username,function(bool){
-         if(bool == true){console.log(bool);
+         if(bool == true){
+             userDao.addBookCount(username);
              book.updateIsInLibraryToZero(bookNo);
              order.saveDetailInBookDetail(detail,function(){
                      res.status(200).send(true);
              });
-         }else{console.log(bool);
+         }else{
             res.status(200).send(false);
          }
     });   

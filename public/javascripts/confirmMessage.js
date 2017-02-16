@@ -15,9 +15,9 @@ $(document).ready(function(){
          	success:function(data,status){
          	   if(status == 'success'){
                  if(data == true){
-                     $('.modal').fadeIn(1000);
+                     $('#modal1').fadeIn(1000);
                      var bool = false;
-                     $('.modal button').click(function(event){
+                     $('#modal1 button').click(function(event){
                           bool = true;
                           var event = event || window.event;
                           event.preventDefault();
@@ -29,9 +29,9 @@ $(document).ready(function(){
                          },5000);
                      } 
                  }else{
-                     $('#modal1').fadeIn(1000);
+                     $('#modal2').fadeIn(1000);
                      var bool = false;
-                     $('#modal1 button').click(function(event){
+                     $('#modal2 button').click(function(event){
                           bool = true;
                           var event = event || window.event;
                           event.preventDefault();

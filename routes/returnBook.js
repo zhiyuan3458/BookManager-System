@@ -3,6 +3,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var database = require('../dao/database/database');
 var order = require('../dao/orderDao/order');
+var userDao = require('../dao/userDao/userDao');
 
 router.get('/',function(req,res){
     res.render('returnBook',{title:'returnBook'});
@@ -26,7 +27,8 @@ router.post('/',function(req,res){
                }
         });
     }else if(type == 'confirm'){
-        var user = req.cookies.user;console.log();
+        var user = req.cookies.user || req.session.user;
+        userDao.deleteBookCount(user.username);
         order.deleteOrderDetail(bookNo,user,function(result){
               if(result == true){
                   res.sendStatus(200);

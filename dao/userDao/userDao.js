@@ -45,12 +45,12 @@ function checkBookCountBiggerThan3(userName,callback){
 
 function addBookCount(userName){
    var sql = 'update users set book_count=book_count+1 where username=?';
-   database.update(sql,[username]);
+   database.update(sql,[userName]);
 }
 
 function deleteBookCount(userName){
    var sql = 'update users set book_count=book_count-1 where username=?';
-   database.update(sql,[username]);
+   database.update(sql,[userName]);
 }
 
 module.exports = {registRemote,registPost,checkBookCountBiggerThan3,addBookCount,deleteBookCount};
