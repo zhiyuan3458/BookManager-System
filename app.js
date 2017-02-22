@@ -30,7 +30,7 @@ app.use(session({
            resave:false,   //设置了cookie的maxAge的话，一般为false
            saveUninitialized:true,
            cookie:{
-           maxAge:1000*60*60
+           maxAge:60*60*1000
            }  
 }));
 

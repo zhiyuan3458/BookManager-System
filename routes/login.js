@@ -9,11 +9,13 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended:true}));
 var upload = multer();
 var book = require('../dao/bookDao/book');
+var crypto = require('crypto');
+var hash = crypto.createHash("md5");
 
 //通过get方式获得index.html
 router.get('/', function(req, res) {
 // 　　res.render('index',{title:'index'});
-       if(req.cookies && req.cookies.user !== undefined){
+       if(req.cookies && req.cookies.user !== undefined){console.log(req.cookies.user);
                res.redirect("home?title=新书推荐&type=first"); //收到前台的location.href为home时执行
        }else{
           res.locals.message = req.session.message;
@@ -22,7 +24,9 @@ router.get('/', function(req, res) {
 });
 //在index.html中post数据，upload.array()用于上传表单文本域
 router.post('/',upload.array(),function(req,res,next){
- 	  var user = {username:req.body.username,password:req.body.password};
+    hash.update(req.body.password);
+    var password = hash.digest("hex");
+ 	  var user = {username:req.body.username,password:password};
     var checked = req.body.checked;
     if(user.username == '' || user.password == ''){
         req.session.message = '<div style="position:fixed;top:0;color:red;width:100%;">账号或密码不能为空！</div>';
@@ -35,7 +39,7 @@ router.post('/',upload.array(),function(req,res,next){
                    if(results[0]){
                        if(results[0].password == user.password){
                           if(checked){
-                               res.cookie("user",user,{httpOnly:true,maxAge:1000*60*60*24*30});
+                               res.cookie("user",user,{httpOnly:true,maxAge:1000*60*60*24*30});   //1000*60*60*24*30
                           }
                         req.session.user = user;
                         res.sendStatus(200);

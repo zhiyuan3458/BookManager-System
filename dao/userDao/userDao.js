@@ -2,6 +2,9 @@ var database = require('../database/database');
 var bodyParser = require('body-parser');//解析req.body
 var multer = require('multer');  //解析form的文本域与文件上传 
 var session = require('express-session');
+var crypto =  require('crypto');
+var hash = crypto.createHash("md5");
+
     //处理判断用户名是否存在的函数
 var registRemote = function(req,res){
       var username = req.body.username.toString();
@@ -20,9 +23,11 @@ var registRemote = function(req,res){
 var registPost = function(req,res){
       var username = req.body.username;
       var password = req.body.password;
-      var sql = 'insert into users(user_id,username,password) values(?,?,?)';
+      hash.update(password);
+      password = hash.digest("hex");console.log(password);
+      var sql = 'insert into users(user_id,username,password,book_count) values(?,?,?,?)';
       var client = database.getConnection();
-      database.insert(client,sql,[,username,password],function(error,results){
+      database.insert(client,sql,[,username,password,0],function(error,results){
       	   if(results){
                res.sendStatus(200);
       	   }  	  
