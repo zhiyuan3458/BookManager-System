@@ -81,8 +81,6 @@ router.post('/',function(req,res){
                               '<button class="btn btn-info btn-block" name="confirm">确定</button>'+
                               '</div></form></div>'
         );
-    }else if(href == 'person'){
-
     }else{
 
     }

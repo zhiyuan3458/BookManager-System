@@ -17,6 +17,7 @@ function showBook(bookId,title,callback){
                      book.bookNum = result[0].book_num;
                      book.bookPic = result[0].book_pic;
                      book.type = result[0].type;
+                     book.jianjie = result[0].jianjie;
                      callback(book);
                  }else{
                      message = 'wrong';

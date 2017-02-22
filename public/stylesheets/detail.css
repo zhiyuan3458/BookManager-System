@@ -58,12 +58,16 @@
 	margin-top:4rem;
 }
 
+#detail-introduction{
+	margin-bottom: 50px;
+}
+
 #detail-introduction p{
 	text-align: center;
 	padding-top:1rem;
 }
 
 #get{
-   position: absolute;
+   position: fixed;
    bottom: 0;
 }
