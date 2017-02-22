@@ -6,6 +6,7 @@ var multer = require('multer');  //解析form的文本域与文件上传
 var upload = multer(); 
 var database = require('../dao/database/database');
 var book = require('../dao/bookDao/book');
+var collection = require("../dao/collectionDao/collection");
 
 router.get('/',function(req,res){
    var query = url.parse(req.url).query;
@@ -17,6 +18,9 @@ router.get('/',function(req,res){
 });
 
 router.post('/',upload.array(),function(req,res){
+   var user = req.session.user || req.cookies.user;
+   var username = user.username;
+   var bookName = req.body.bookName || '';
 	 var bookNo = req.body.bookNo;
 	 var type = req.body.type || '';
 	 var client = database.getConnection();
@@ -34,7 +38,15 @@ router.post('/',upload.array(),function(req,res){
                   res.send(false);
              }
         });
-	 }else{
+	 }else if(type == "collect"){
+      collection.collectBook(bookName,username,function(bool){
+          res.status(200).send(bool);
+      });
+   }else if(type == "check"){
+      collection.checkCollection(bookName,username,function(data){
+           res.status(200).send(data);
+      });
+   }else{
         res.status(200).send(bookNo);
 	 }
 });

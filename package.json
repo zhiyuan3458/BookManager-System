@@ -42,6 +42,7 @@
     "http": "0.0.0",
     "jQuery": "^1.7.4",
     "jquery": "^3.1.1",
+    "jquery-weui": "^1.0.1",
     "multer": "^1.2.1",
     "mysql": "^2.12.0",
     "style-loader": "^0.13.1",

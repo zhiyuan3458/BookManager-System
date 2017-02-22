@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    checkCollect();
     $('form').validate({
     	errorElement:"span",
     	rules:{
@@ -61,6 +62,29 @@ $(document).ready(function(){
 		 window.history.back();
   });
 
+  //点击收藏按钮后
+    $(".collect").click(function(event){
+        var event = window.event || event;
+        event.preventDefault();
+        $.ajax({
+           url:"/detail",
+           data:{
+             type:"collect",
+             bookName:$("#detail-head .detail-head-bookname p:eq(0)").text(),
+           },
+           type:"post",
+           success:function(data,status){
+              if(status == 'success'){
+                  if(data == true){
+                     $(".collect").css("color","yellow");
+                  }else{
+                     $(".collect").css("color","white");
+                  }
+              }
+           }
+        });
+    });
+
 	// $("button[name='submit']").click(function(){
 	// 	 var bookNo = $("input[name='bookNo']").val();
 	// 	 $.ajax({
@@ -78,3 +102,24 @@ $(document).ready(function(){
 	// 	 });
 	// });
 });
+
+
+function checkCollect(){
+     $.ajax({
+           url:"/detail",
+           data:{
+             type:"check",
+             bookName:$("#detail-head .detail-head-bookname p:eq(0)").text(),
+           },
+           type:"post",
+           success:function(data,status){
+              if(status == 'success'){
+                  if(data == true){
+                     $(".collect").css("color","yellow");
+                  }else{
+                     $(".collect").css("color","white");
+                  }
+              }
+           }
+     });
+  }

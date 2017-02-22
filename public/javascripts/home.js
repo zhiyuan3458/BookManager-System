@@ -26,7 +26,7 @@ $(document).ready(function(){
             }
     	});
     });
-    
+
     //向左向右移动页面发生变化
       function touchAjaxNav(title,activeIndex,activeElement){
           $.ajax({

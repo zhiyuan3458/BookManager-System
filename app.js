@@ -12,6 +12,7 @@ var detail = require('./routes/detail');
 var confirmMessage = require('./routes/confirmMessage');
 var returnBook = require('./routes/returnBook');
 var search = require("./routes/search");
+var collect = require("./routes/collect");
 
 var test = require('./routes/test');
 
@@ -42,6 +43,7 @@ app.use('/detail',detail);
 app.use('/confirmMessage',confirmMessage);
 app.use('/returnBook',returnBook);
 app.use('/search',search);
+app.use('/collect',collect);
 
 app.use('/test',test);
 
