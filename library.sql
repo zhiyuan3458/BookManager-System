@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2017-02-22 23:08:50
+Date: 2017-02-23 00:04:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -137,16 +137,17 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(11) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `book_count` int(11) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', '20133100107', '12345678', '0');
-INSERT INTO `users` VALUES ('13', '20133100105', '12345678', '0');
-INSERT INTO `users` VALUES ('14', '20133100104', '12345678', '0');
-INSERT INTO `users` VALUES ('16', '20133100108', '12345678', '0');
-INSERT INTO `users` VALUES ('18', '20133100101', '12345678', '0');
+INSERT INTO `users` VALUES ('13', '20133100105', '25d55ad283aa400af464c76d713c07ad', '0');
+INSERT INTO `users` VALUES ('14', '20133100104', '25d55ad283aa400af464c76d713c07ad', '0');
+INSERT INTO `users` VALUES ('16', '20133100108', '25d55ad283aa400af464c76d713c07ad', '0');
+INSERT INTO `users` VALUES ('18', '20133100101', '25d55ad283aa400af464c76d713c07ad', '0');
+INSERT INTO `users` VALUES ('21', '20133100005', '25d55ad283aa400af464c76d713c07ad', '0');
+INSERT INTO `users` VALUES ('22', '20133100107', '25d55ad283aa400af464c76d713c07ad', '0');
