@@ -15,7 +15,7 @@ var hash = crypto.createHash("md5");
 //通过get方式获得index.html
 router.get('/', function(req, res) {
 // 　　res.render('index',{title:'index'});
-       if(req.cookies && req.cookies.user !== undefined){console.log(req.cookies.user);
+       if(req.cookies && req.cookies.user !== undefined){
                res.redirect("home?title=新书推荐&type=first"); //收到前台的location.href为home时执行
        }else{
           res.locals.message = req.session.message;
