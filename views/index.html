@@ -19,7 +19,7 @@
 			        <div class="input-group-addon" style="background: #66D9EF;">
 			        	<span class="glyphicon glyphicon-user"></span>
 			        </div> 
-			        <input type="text" name="username" class="form-control" placeholder="请输入账号">
+			        <input type="text" name="username" class="form-control" placeholder="请输入账号" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')">
                  </div><br><br>
 	
 			     <div class="input-group"> 

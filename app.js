@@ -34,7 +34,7 @@ app.use(session({
            }  
 }));
 
-app.use(cookie());
+// app.use(cookie());
 
 app.use('/',login);
 app.use('/home',home);

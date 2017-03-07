@@ -10,7 +10,6 @@ router.use(bodyParser.urlencoded({extended:true}));
 var upload = multer();
 var book = require('../dao/bookDao/book');
 var crypto = require('crypto');
-var hash = crypto.createHash("md5");
 
 //通过get方式获得index.html
 router.get('/', function(req, res) {
@@ -23,7 +22,8 @@ router.get('/', function(req, res) {
        }
 });
 //在index.html中post数据，upload.array()用于上传表单文本域
-router.post('/',upload.array(),function(req,res,next){
+router.post('/',upload.array(),function(req,res){
+	var hash = crypto.createHash("md5");
     hash.update(req.body.password);
     var password = hash.digest("hex");
  	  var user = {username:req.body.username,password:password};
@@ -39,7 +39,7 @@ router.post('/',upload.array(),function(req,res,next){
                    if(results[0]){
                        if(results[0].password == user.password){
                           if(checked){
-                               res.cookie("user",user,{httpOnly:true,maxAge:1000*60*60*24*30});   //1000*60*60*24*30
+                               // res.cookie("user",user,{httpOnly:true,maxAge:1000*60*60*24*30});   //1000*60*60*24*30
                           }
                         req.session.user = user;
                         res.sendStatus(200);

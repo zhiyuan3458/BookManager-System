@@ -29,7 +29,7 @@ router.get('/',function(req,res){
              default:{break;}
            }
        }else if(title !== '' && type == 'first'){
-             if(req.session.user !== undefined ||req.cookies.user !==undefined){  // ||req.cookies.user !==undefined
+             if(req.session.user !== undefined ){  // ||req.cookies.user !==undefined
                 book.showBook(0,title,function(data){
                    res.render('home',{title:'新书推荐',data:data});  
                 });
