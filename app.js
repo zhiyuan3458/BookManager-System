@@ -1,3 +1,7 @@
+process.on('uncaughtException', function (err) {
+    console.log('Caught exception: ', err);
+});
+
 var express = require('express');
 var app = express();  //启动一个express应用
 var path = require('path');  //用于加载静态文件
@@ -20,6 +24,9 @@ app.set('views', __dirname+'/views');
  
 app.set( 'view engine', 'html' );  //设置模板文件为“*.html”
 app.engine( '.html', require( 'ejs' ).__express );
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+
 
 app.use(favicons(__dirname + '/public/img/icons'));
 app.use(express.static(path.join(__dirname, '/public')));
@@ -34,7 +41,7 @@ app.use(session({
            }  
 }));
 
-// app.use(cookie());
+app.use(cookie());
 
 app.use('/',login);
 app.use('/home',home);
