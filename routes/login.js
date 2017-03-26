@@ -1,4 +1,4 @@
-// 实现登陆功能
+﻿// 实现登陆功能
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');//解析req.body
@@ -22,37 +22,37 @@ router.get('/', function(req, res) {
        }
 });
 //在index.html中post数据，upload.array()用于上传表单文本域
-router.post('/',upload.array(),function(req,res){
-	 var hash = crypto.createHash("md5");
-     hash.update(req.body.password);
-     var password = hash.digest("hex");
-  	 var user = {username:req.body.username,password:password};
-     var checked = req.body.checked;
-     if(user.username == '' || user.password == ''){
-         req.session.message = '<div style="position:fixed;top:0;color:red;width:100%;">账号或密码不能为空！</div>';
-         res.sendStatus(404);
-     }else{
-         var client = database.getConnection();
-         var sql = 'select password from users where username="'
-                  +user.username+'"';
-                  database.select(client,sql,function(results){
-                    if(results[0]){
-                        if(results[0].password == user.password){
-                           if(checked){
-                                res.cookie("user",user,{httpOnly:true,maxAge:1000*60*60*24*30});   //1000*60*60*24*30
-                           }
-                         req.session.user = user;
-                         res.sendStatus(200);
-                        }else{
-                         req.session.message = '<div style="position:fixed;top:0;color:red;width:100%;">密码输入错误，请重新输入！</div>';
-                         res.sendStatus(404);
-                        }
-                    }else{
-                     req.session.message = '<div style="position:fixed;top:0;color:red;width:100%;">用户名不存在！</div>';
-                     res.sendStatus(404);
-                    }
-                  });
-     }
+router.post('/',upload.array(),function(req,res,next){
+    var hash = crypto.createHash("md5");
+    hash.update(req.body.password);
+    var password = hash.digest("hex");
+ 	  var user = {username:req.body.username,password:password};
+    var checked = req.body.checked;
+    if(user.username == '' || user.password == ''){
+        req.session.message = '<div style="position:fixed;top:0;color:red;width:100%;">账号或密码不能为空！</div>';
+        res.sendStatus(404);
+    }else{
+        var client = database.getConnection();
+        var sql = 'select password from users where username="'
+                 +user.username+'"';
+                 database.select(client,sql,function(results){
+                   if(results[0]){
+                       if(results[0].password == user.password){
+                          if(checked){
+                               res.cookie("user",user,{httpOnly:true,maxAge:1000*60*60*24*30});   //1000*60*60*24*30
+                          }
+                        req.session.user = user;
+                        res.sendStatus(200);
+                       }else{
+                        req.session.message = '<div style="position:fixed;top:0;color:red;width:100%;">密码输入错误，请重新输入！</div>';
+                        res.sendStatus(404);
+                       }
+                   }else{
+                    req.session.message = '<div style="position:fixed;top:0;color:red;width:100%;">用户名不存在！</div>';;
+                    res.sendStatus(404);
+                   }
+                 });
+    }
  	  
 });
 
